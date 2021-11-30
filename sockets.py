@@ -27,7 +27,8 @@ sockets = Sockets(app)
 app.debug = True
 
 # added here------------------------------------
-
+# this chunk of code is inspired from lecture example
+#source:https://github.com/uofa-cmput404/cmput404-slides/blob/master/examples/WebSocketsExamples/chat.py
 clients = list()
 
 def send_all(msg):
@@ -104,7 +105,7 @@ def read_ws(ws,client):
     try:
         while True:
             msg = ws.receive()
-            print("WS RECV: %s" % msg)
+            #print("WS RECV: %s" % msg)
             if (msg is not None):
                 packet = json.loads(msg)
                 send_all_json( packet )
